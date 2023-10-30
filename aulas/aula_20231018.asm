@@ -2,7 +2,6 @@
 
 .data
 
-
 .text
 # init
 init:
