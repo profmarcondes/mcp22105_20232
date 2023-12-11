@@ -36,12 +36,13 @@ j main_loop
 	jr $ra
 #==============
 .eqv KSTACK_SIZE 4096
+.eqv KSTACK_INIT 0x90010000
 
 .ktext 0x80000180
 exception_handler:
 	add   $k1, $at, $zero  
-	la    $k0, kstack
-	addi  $k0, $k0, KSTACK_SIZE
+	li    $k0, KSTACK_INIT
+	#addi  $k0, $k0, KSTACK_SIZE
 	
 	addi  $k0, $k0, -124
 	sw    $k1, 0($k0)
@@ -99,9 +100,9 @@ exception_handler:
 	
 exception_handler_SoftException:
 	mfc0  	$t0, $14      # $k0 = EPC 
-    addiu 	$t0, $t0, 4   # Increment $k0 by 4 
-    mtc0  	$t0, $14      # EPC = point to next instruction
-    j		exception_handler_Done 
+    	addiu 	$t0, $t0, 4   # Increment $k0 by 4 
+    	mtc0  	$t0, $14      # EPC = point to next instruction
+    	j		exception_handler_Done 
 
 exception_handler_Hardware:
 	# Hardware Interrupt	
