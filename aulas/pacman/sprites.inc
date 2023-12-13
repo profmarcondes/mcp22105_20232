@@ -141,7 +141,7 @@ draw_grid_L0_end:
 # }
 #=============================================================
 #IMP
-# process_input(mov_vector *)
+# void process_input(mov_vector *)
 process_input:
     ## Verificar se key_rb está vazio
     ## Se estiver, retornar

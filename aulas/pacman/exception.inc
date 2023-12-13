@@ -119,10 +119,10 @@ exception_handler_Done:
 	lw    $sp, 104($k0)
 	lw    $fp, 108($k0)
 	lw    $ra, 112($k0)
-	lw    $t0, 116($k0)
-	mthi  $t0
-	lw    $t0, 120($k0) 
-	mtlo  $t0
+	lw    $k1, 116($k0)
+	mthi  $k1
+	lw    $k1, 120($k0) 
+	mtlo  $k1
 
 	addi  $k0, $k0, 124
 

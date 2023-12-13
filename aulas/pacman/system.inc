@@ -9,8 +9,7 @@
 .eqv  KSTACK_INIT 0x90010000
 
 .data
-.align 2
-key_rb: .space 28
+t_ringbuffer(key_rb)
 
 .text 0x00400000 ## System Init Code
 init:
@@ -100,7 +99,6 @@ enable_keyboard_int:
 # void set_pixel(X, Y, color)
 set_pixel:
 
-   
    jr  $ra
 #=============================================================
 
